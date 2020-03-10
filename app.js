@@ -1,0 +1,1 @@
+fetch("http://andmebaas.stat.ee/sdmx-json/data/PA633/17+DBL112+DBL151+DBL177+DBL401.3.1/all?startTime=2014&endTime=2014&dimensionAtObservation=allDimensions")
