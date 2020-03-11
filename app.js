@@ -6,6 +6,23 @@ let occupations = {
     8322: {name: 'Autojuht', rate: 0}
 }
 
+const occupationSelect = document.getElementById('occupation-select')
+const salaryDiv = document.getElementById('salary')
+
+for (const key in occupations ) {
+    const option = document.createElement('option')
+    option.value = key
+    option.text = occupations[key].name
+    occupationSelect.append(option)
+}
+
+document.addEventListener('change', () => {
+    console.log(occupationSelect.value)
+    if ( occupationSelect.value ) {
+        salaryDiv.innerHTML = occupations[occupationSelect.value].rate
+    }
+})
+
 fetch("http://andmebaas.stat.ee/sdmx-json/data/PA633/17+DBL112+DBL151+DBL177+DBL401.3.1/all?startTime=2014&endTime=2014&dimensionAtObservation=allDimensions")
 .then(response => {
     return response.json()
@@ -24,4 +41,4 @@ fetch("http://andmebaas.stat.ee/sdmx-json/data/PA633/17+DBL112+DBL151+DBL177+DBL
     });
 
     console.log(occupations)
-})
+}) 
